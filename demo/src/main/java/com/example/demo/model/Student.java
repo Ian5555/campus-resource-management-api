@@ -4,14 +4,13 @@ public class Student {
     private int id;
     private String name;
     private String major;
-    private String targetrole;
+    private String targetRole;
 // Constructor builds the student when the API gets a request.
-    public Student(int id, String name, String major, String targetrole) {
+    public Student(int id, String name, String major, String targetRole) {
         this.id = id;
         this.name = name;
         this.major = major;
-        this.targetrole = targetrole;
-
+        this.targetRole = targetRole;
     }
 // Getters allow the API to access the student information when it needs to send a response.
     public int getId() {
@@ -27,6 +26,6 @@ public class Student {
     }
 
     public String getTargetRole() {
-        return targetrole;
+        return targetRole;
     }
 }
