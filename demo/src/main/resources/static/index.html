@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Ensures proper rendering and touch zooming on mobile devices -->
+    <title>CS Internship Tracker</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file for styling the page -->
+</head>
+<body>
+
+    <h1>CS Internship Tracker</h1>
+    <div class="dashboard-container ">
+     
+     <div class="form-section">   
+    <label for="name">Username:</label>
+    <input type="text" id="name" name="name" placeholder="Enter name">
+    <label for="major">Major:</label>
+    <input type="text" id="major" name="major" placeholder="Enter major">
+    <label for="targetRole">Target Role:</label>
+    <input type="text" id="targetRole" name="target role" placeholder="Enter target role">
+    <button id="submit">Submit</button>
+     </div> <!-- Form section for user input -->
+
+    <div class="table-section"> <!-- Section for displaying the table of data -->
+    <table>
+        <!-- The header row -->
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Major</th>
+                <th>Target Role</th>
+            </tr>
+        </thead>
+        
+        <!-- The list data rows -->
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Alex Johnson</td>
+                <td>Computer Science</td>
+                <td>Software Engineer</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Maria Smith</td>
+                <td>Mathematics</td>
+                <td>Data Analyst</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+
+    <script src="script.js"></script> <!-- Link to the JavaScript file -->
+</body>
+</html>

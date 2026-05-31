@@ -1,0 +1,21 @@
+/* Target the master container we built */
+.dashboard-container {
+    display: flex; /* This is the magic command that forces items side-by-side */
+    gap: 40px; /* Puts a nice wide space between the left and right sides */
+    padding: 20px;
+}
+
+/* Give the form some background color so we can see its "box" */
+.form-section {
+    background-color: #efeff7;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+}
+
+/* Make the form inputs stack nicely */
+.form-section input, .form-section label {
+    display: block; 
+    width: 100%;
+    margin-bottom: 10px;
+}
