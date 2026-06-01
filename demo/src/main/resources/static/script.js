@@ -46,10 +46,56 @@ submitButton.addEventListener("click", function(event) {
     if (response.ok) { // If the response is successful (status code 200-299)
         console.log("Student added successfully!, added to database");
         alert("Student added successfully!, added to database"); // Pops up an alert to the user to confirm the student was added   
+        loadStudents(); // Call the function to refresh the list of students in the table to show the new student we just added
     } else { // If the response is not successful (status code outside of 200-299)
         console.error("The server rejected our data");
     }
 
 
 })
+
 });
+
+// A new method to grab all students from the database
+function loadStudents() {
+    // Reach out to Spring Boot server aka GET request pull from JSON array of students
+    fetch("http://localhost:8082/api/students") // We send a GET request to this URL to get all students
+    .then(function(response) { // This is a callback function that will run when we get a response from Spring Boot
+        return response.json(); // We take the response and convert it from JSON string back into a JavaScript array of student objects
+    })
+    .then(function(data) { // This is another callback function that will run after we have converted the response to a JavaScript array}
+        // print the array to the console to prove we got it
+        console.log("Database Data: " , data);
+
+        // Find the empty table body we made in HTML
+        const tableBody = document.getElementById("studentTableBody");
+
+        // Clear it out so we dont have duplicates when we load students multiple times
+        tableBody.innerHTML = "";
+
+        // Loop through every student in the array
+        data.forEach(function(student) {
+
+            // Create a brand new, empty HTML row
+            const row = document.createElement("tr");
+
+            // Build the HTML for the collumns using Template Literals, which are a way to create strings that can have variables inside them
+            // Must be the same variable names as the ones in the Student class in Spring Boot
+            row.innerHTML = `
+            <td>${student.id}</td>
+            <td>${student.name}</td>
+            <td>${student.major}</td>
+            <td>${student.targetRole}</td>
+            `;
+            // Drop the finished row into the HTML table body
+            tableBody.appendChild(row);
+        });
+    });
+}
+
+// Run the function immediately as soon as the page loads to populate the table with students from the database
+loadStudents();
+
+
+
+

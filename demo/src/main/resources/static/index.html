@@ -11,13 +11,13 @@
     <h1>CS Internship Tracker</h1>
     <div class="dashboard-container ">
      
-     <div class="form-section">   
-    <label for="name">Username:</label>
-    <input type="text" id="name" name="name" placeholder="Enter name">
+     <div class="form-section">   <!-- Section for the form to input user data -->
+    <label for="name">Username:</label> <!-- Label for the name input field -->
+    <input type="text" id="name" name="name" placeholder="Enter name"> <! -- calls the name input field and sets a placeholder -->
     <label for="major">Major:</label>
-    <input type="text" id="major" name="major" placeholder="Enter major">
+    <input type="text" id="major" name="major" placeholder="Enter major"> <! -- calls the major input field and sets a placeholder -->
     <label for="targetRole">Target Role:</label>
-    <input type="text" id="targetRole" name="target role" placeholder="Enter target role">
+    <input type="text" id="targetRole" name="target role" placeholder="Enter target role"> <! -- calls the target role input field and sets a placeholder -->
     <button id="submit">Submit</button>
      </div> <!-- Form section for user input -->
 
@@ -34,20 +34,11 @@
         </thead>
         
         <!-- The list data rows -->
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Alex Johnson</td>
-                <td>Computer Science</td>
-                <td>Software Engineer</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Maria Smith</td>
-                <td>Mathematics</td>
-                <td>Data Analyst</td>
-            </tr>
-        </tbody>
+        
+         <tbody id="studentTableBody"></tbody>
+               
+          
+        
     </table>
     </div>
 
