@@ -86,6 +86,8 @@ function loadStudents() {
             <td>${student.name}</td>
             <td>${student.major}</td>
             <td>${student.targetRole}</td>
+            <td><button onclick="deleteStudent(${student.id})">Delete</button>  <!-- student.id is the unique identifier for each student, we will use it to tell Spring Boot which student to delete when the button is clicked -->
+            </td>
             `;
             // Drop the finished row into the HTML table body
             tableBody.appendChild(row);
@@ -95,6 +97,22 @@ function loadStudents() {
 
 // Run the function immediately as soon as the page loads to populate the table with students from the database
 loadStudents();
+
+// A new method to delete a student from the database
+function deleteStudent(studentID) {
+
+    fetch(`http://localhost:8082/api/students/${studentID}`, {
+        method: "DELETE"
+     })
+     .then(function(response) {
+        if (response.ok) {
+            console.log("Student deleted successfully!");
+            loadStudents(); // Call the function to refresh the list of students in the table to show that the student was deleted
+        } else {
+            console.error("Failed to delete student");
+        }
+     }); // We send a DELETE request to this URL to delete the student with the specified ID
+}
 
 
 
